@@ -21,7 +21,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
+//@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
 @Transactional
 class PacienteServiceTest {
     static final Logger logger = LoggerFactory.getLogger(PacienteServiceTest.class);
