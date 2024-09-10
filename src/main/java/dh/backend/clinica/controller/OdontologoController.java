@@ -32,4 +32,11 @@ public class OdontologoController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PutMapping("/agregarEspecialidad")
+    public ResponseEntity<String> agregarEspecialidad(@RequestParam Integer id_odontologo,
+                                                      @RequestParam Integer id_especialidad){
+        odontologoService.agregarEspecialidad(id_odontologo, id_especialidad);
+        return ResponseEntity.ok("{\"mensaje\": \"la especialidad fue agregada\"}");
+    }
 }

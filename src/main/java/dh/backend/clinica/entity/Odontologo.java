@@ -1,5 +1,6 @@
 package dh.backend.clinica.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import dh.backend.clinica.utils.GsonProvider;
 import jakarta.persistence.*;
@@ -9,6 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -30,6 +32,14 @@ public class Odontologo {
     @JsonManagedReference(value = "odontologo-turno")
     //@JsonIgnore
     private Set<Turno> turnoSet;
+
+    //la configuración de la tabla dueña de la relacion
+    @ManyToMany
+    @JoinTable(name="odontologos_especialidades",
+    joinColumns = @JoinColumn(name="odontologos_id"),
+    inverseJoinColumns = @JoinColumn(name="especialidades_id"))
+    @JsonIgnoreProperties("odontologos")
+    private Set<Especialidad> especialidades;
 
     @Override
     public String toString() {

@@ -9,4 +9,5 @@ public interface IOdontologoService {
     Odontologo guardarOdontologo(Odontologo odontologo);
 
     Optional<Odontologo> buscarPorId(Integer id);
+    void agregarEspecialidad(Integer id_odontologo, Integer id_especialidad);
 }
