@@ -28,4 +28,9 @@ public class EspecialidadController {
     public ResponseEntity<List<EspecialidadResponseDto>> buscarTodasEspecialidades(){
         return ResponseEntity.ok(especialidadService.buscarTodos());
     }
+
+    @GetMapping("/buscar/{id}")
+    public ResponseEntity<EspecialidadResponseDto> buscarPorId(@PathVariable Integer id){
+        return ResponseEntity.ok(especialidadService.buscarPorId(id).get());
+    }
 }

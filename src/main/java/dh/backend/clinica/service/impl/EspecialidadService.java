@@ -65,6 +65,9 @@ public class EspecialidadService implements IEspecialidadService {
     }
 
     private EspecialidadResponseDto convertirAResponse(Especialidad especialidad){
+        modelMapper.typeMap(Especialidad.class, EspecialidadResponseDto.class).addMappings(
+                mapper -> mapper.map(src -> src.getOdontologos(), EspecialidadResponseDto::setOdontologo)
+        );
         return modelMapper.map(especialidad, EspecialidadResponseDto.class);
 
     }
